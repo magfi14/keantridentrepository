@@ -11,8 +11,8 @@ public class MovieHeap {
     File movies = new File("movies2.txt");
     Scanner scan = new Scanner(movies);
     //Create Scanner for input
-    Scanner menu = new Scanner(System.in);
-    
+    Scanner input = new Scanner(System.in);
+
     //Create Priority Queues for each comparator
     PriorityQueue<Movie> rateCompare = new PriorityQueue<Movie>(1, new RatingComparator());
     PriorityQueue<Movie> yearCompare = new PriorityQueue<Movie>(1, new YearComparator());
@@ -30,7 +30,8 @@ public class MovieHeap {
 
         //Load Queues with values
         Movie adder = new Movie(ID, seen, rating, title, year);
-	    rateCompare.add(adder);
+
+        rateCompare.add(adder);
         yearCompare.add(adder);
         viewsCompare.add(adder);
         idCompare.add(adder);
@@ -45,13 +46,13 @@ public class MovieHeap {
        while (!flag) {
             System.out.print("Sorting Parameter: ");
             //Select Parameter
-            selection = menu.nextInt();
+            selection = input.nextInt();
             //By Year
             if (selection == 1) {
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
                 while (!yearCompare.isEmpty()) {
                     Movie m = yearCompare.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
             //By Average Raing
@@ -59,7 +60,7 @@ public class MovieHeap {
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
                 while (!rateCompare.isEmpty()) {
                     Movie m = rateCompare.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
             //By Viewers
@@ -67,7 +68,7 @@ public class MovieHeap {
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
                 while (!viewsCompare.isEmpty()) {
                     Movie m = viewsCompare.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
             //By Numeric Score
@@ -75,7 +76,7 @@ public class MovieHeap {
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
                 while (!idCompare.isEmpty()) {
                     Movie m = idCompare.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
             //Exit
@@ -91,7 +92,7 @@ public class MovieHeap {
     
     //Close Scanners
     scan.close();
-    menu.close();
+    input.close();
     }
     
 }
