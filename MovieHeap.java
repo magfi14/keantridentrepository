@@ -20,6 +20,9 @@ public class MovieHeap {
         int year = scan.nextInt();
     }
 
+    //Close Scanner
+    scan.close();
     }
+
 }
 
