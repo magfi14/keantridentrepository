@@ -9,7 +9,6 @@ public class Movie {
     /**
      * Instance Fields
      */
-
     private int percentageIdentificationNumber;
     private int numberSeen;
     private float averageRating;
@@ -17,11 +16,10 @@ public class Movie {
     private int releaseYear;
 
     /* Constructor */
-
     public Movie() {
 
     }
-
+    
     /**
      * Creates a new Movie object
      * @param percentageId The distribution of the percentage of people who gave a rating
@@ -30,7 +28,6 @@ public class Movie {
      * @param name The name of the movie
      * @param relYear The release year
      */
-
     public Movie(int percentageId, int numSeen, float avgRate, String name, int relYear) {
 
         this();
@@ -161,6 +158,48 @@ public class Movie {
 
         return String.format("%d\t%d\t%.1f\t%s\t%d", this.getPercentID(), this.getNumberSeen(), this.getAvgRating(), this.getMovieName(), this.getRelYear());
 
+    }
+
+    /**
+     *
+     * @return The comparable distribution ID
+     */
+    public String getComparableID() {
+    
+        return Integer.toString(this.percentageIdentificationNumber);
+    
+    }
+    
+    /**
+     * Converts the string representation of the percentage distribution ID into a formatted array. Iterates through the array to calculate the final serial distribution ID as a representation of the percentage of people who rated a certain score
+     * @return The serial distribution ID number to be used in comparing the percentage distribution between two movies
+     */
+    public int getSerialDistributionID() {
+    
+        int finalID = 0;
+    
+        String ID = this.getComparableID();
+        int [] distributionArr = new int[ID.length()];
+    
+        // Converts string representation of percentage distribution ID into an array
+    
+        for (int i = 0; i < distributionArr.length; i++) {
+    
+            distributionArr[i] = Integer.parseInt(ID.substring(i, i + 1));
+    
+        }
+    
+        // Iterate through the array to calculate the final serial distribution ID as a representation of the percentage of people who rated a certain score
+        for (int i = 0; i < distributionArr.length; i++) {
+    
+            int cellResult = 0;
+            cellResult = (10 * (i + 1)) * distributionArr[i];
+            finalID += cellResult;
+    
+        }
+    
+        return finalID;
+    
     }
 
 }
