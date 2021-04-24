@@ -10,5 +10,4 @@ public class RatingComparator implements Comparator<Movie> {
         else
             return 0;
     }
-    
 }
