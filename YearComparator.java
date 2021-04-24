@@ -7,7 +7,6 @@ public class YearComparator implements Comparator {
     //Instance Variable
     private int releaseYear;
 
-    
     public YearComparator(int year) {
 
         this.releaseYear = year;
