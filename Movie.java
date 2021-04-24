@@ -1,6 +1,7 @@
 /**
  * @author Ethan Kupershtein
  * @date 4-20-2021
+ * This is the class file for the Movie Object
  */
 
 public class Movie {
