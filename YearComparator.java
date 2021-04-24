@@ -10,5 +10,4 @@ public class YearComparator implements Comparator<Movie> {
         else
             return 0;
     }
-
 }
