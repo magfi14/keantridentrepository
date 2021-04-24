@@ -8,7 +8,7 @@ public class DistributionComparator implements Comparator {
 
     /** Instance Variables */
 
-    int distributionID;
+    private int distributionID;
 
     /**
      *
@@ -28,7 +28,7 @@ public class DistributionComparator implements Comparator {
 
     public String getComparableID() {
 
-        return Integer.toString(this.distrubtionID);
+        return Integer.toString(this.distributionID);
 
     }
 
@@ -42,7 +42,7 @@ public class DistributionComparator implements Comparator {
         int finalID = 0;
 
         String ID = this.getComparableID();
-        int [] distributionArr = new int[ID.length];
+        int [] distributionArr = new int[ID.length()];
 
         // Converts string representation of percentage distribution ID into an array
 
@@ -73,16 +73,8 @@ public class DistributionComparator implements Comparator {
      * @return The difference between the 2 movies
      */
 
-    public int compare(DistributionComparator comparator1, DistributionComparator comparator2) {
-
-        return comparator2.getSerialDistributionID() - comparator1.getSerialDistributionID();
-
+    @Override
+    public int compare(Object o1, Object o2) {
+        return o2.getSerialDistributionID();
     }
-
-    public String toString() {
-
-        return Integer.toString(compare(DistributionComparator comparator1, DistributionComparator comparator2));
-
-    }
-
 }
