@@ -2,26 +2,99 @@ import java.io.*;
 import java.util.*;
 
 public class MovieHeap {
-
+    
     public static void main(String[] args)throws IOException {
-        //Create Priority Queue Heap
-        PriorityQueue<Integer> pQueue_heap = new PriorityQueue<Integer>(Collections.reverseOrder());
+    //Variable to choose sort
+    int selection;
+    
+    //Create File and Scanner
+    File movies = new File("movies2.txt");
+    Scanner scan = new Scanner(movies);
+    //Create Scanner for input
+    Scanner menu = new Scanner(System.in);
+    
+    //Create Priority Queues for each comparator
+    PriorityQueue<Movie> rateCompare = new PriorityQueue<Movie>(1, new RatingComparator());
+    PriorityQueue<Movie> yearCompare = new PriorityQueue<Movie>(1, new YearComparator());
+    PriorityQueue<Movie> viewsCompare = new PriorityQueue<Movie>(1, new StudentsSawComparator());
+    PriorityQueue<Movie> idCompare = new PriorityQueue<Movie>(1, new DistributionComparator());
+    
+    //Loop to read File
+    while (scan.hasNextLine()) {
+        //Read from file
+        int ID = scan.nextInt();
+        int seen = scan.nextInt();
+        float rating = scan.nextFloat();
+        String title = scan.next();
+        int year = scan.nextInt();
 
-        //Create File and Scanner
-        File movies = new File("movies.txt");
-        Scanner scan = new Scanner(movies);
-
-        //Loop to read File
-        while (scan.hasNextLine()) {
-            int ID = scan.nextInt();
-            int seen = scan.nextInt();
-            float rating = scan.nextFloat();
-            String title = scan.next();
-            int year = scan.nextInt();
-        }
-
-        //Close Scanner
-        scan.close();
+        //Load Queues with values
+        Movie adder = new Movie(ID, seen, rating, title, year);
+	    rateCompare.add(adder);
+        yearCompare.add(adder);
+        viewsCompare.add(adder);
+        idCompare.add(adder);
     }
 
+    //Display Prompt
+    System.out.println("Choose your sorting parameters, " + "\n" + "1 to sort by Year" + "\n" + "2 to sort by Average Rating" + "\n" +
+    "3 to sort by Viewers" + "\n" + "4 to sort by Numeric Score" + "\n" + "0 to Exit");
+       //Exit flag
+       boolean flag = false;
+       //Loop to choose display
+       while (!flag) {
+            System.out.print("Sorting Parameter: ");
+            //Select Parameter
+            selection = menu.nextInt();
+            //By Year
+            if (selection == 1) {
+                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
+                while (!yearCompare.isEmpty()) {
+                    Movie m = yearCompare.poll();
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                }
+            }
+            //By Average Raing
+            else if (selection == 2) {
+                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
+                while (!rateCompare.isEmpty()) {
+                    Movie m = rateCompare.poll();
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                }
+            }
+            //By Viewers
+            else if (selection == 3) {
+                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
+                while (!viewsCompare.isEmpty()) {
+                    Movie m = viewsCompare.poll();
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                }
+            }
+            //By Numeric Score
+            else if (selection == 4) {
+                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
+                while (!idCompare.isEmpty()) {
+                    Movie m = idCompare.poll();
+                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getPercentID());
+                }
+            }
+            //Exit
+            else if (selection == 0) {
+                flag = true;
+            }
+            //Incorrect input
+            else {
+                System.out.println("Input not recognized. Try again");
+            }
+       }
+    
+    
+    //Close Scanners
+    scan.close();
+    menu.close();
+    }
+    
 }
+
+
+
