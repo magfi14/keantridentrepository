@@ -1,0 +1,90 @@
+Index: RatingComparator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//Author: Liam Healy\r\n\r\nimport java.util.Comparator;\r\n\r\npublic class RatingComparator implements Comparator {\r\n\r\n    //Instance Variable\r\n    private float averageRating;\r\n    \r\n    public RatingComparator(float rating) {\r\n\r\n        this.averageRating = rating;\r\n    }\r\n    \r\n    public float getComparableRating() {\r\n\r\n        return this.averageRating;\r\n    }\r\n\r\n    @Override\r\n    public int compare(Object o1, Object o2) {\r\n        \r\n        RatingComparator compare1 = (RatingComparator) o1;\r\n        RatingComparator compare2 = (RatingComparator) o2;\r\n\r\n        return (int) (compare2.getComparableRating() - compare1.getComparableRating());\r\n    }\r\n    \r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/RatingComparator.java b/RatingComparator.java
+--- a/RatingComparator.java	(revision 2d5dd046625d2b802813fedfbbf2769f6f34de51)
++++ b/RatingComparator.java	(date 1619280826776)
+@@ -26,4 +26,4 @@
+         return (int) (compare2.getComparableRating() - compare1.getComparableRating());
+     }
+     
+-}
++}
+\ No newline at end of file
+Index: YearComparator.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//Author: Liam Healy\r\n\r\nimport java.util.Comparator;\r\n\r\npublic class YearComparator implements Comparator {\r\n\r\n    //Instance Variable\r\n    private int releaseYear;\r\n\r\n    \r\n    public YearComparator(int year) {\r\n\r\n        this.releaseYear = year;\r\n\r\n    }\r\n\r\n    public int getYear() {\r\n\r\n        return this.releaseYear;\r\n\r\n    }\r\n\r\n\r\n    @Override\r\n    public int compare(Object o1, Object o2) {\r\n\r\n        YearComparator comparator1 = (YearComparator) o1;\r\n        YearComparator comparator2 = (YearComparator) o2;\r\n\r\n        return comparator2.getYear() - comparator1.getYear();\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/YearComparator.java b/YearComparator.java
+--- a/YearComparator.java	(revision 2d5dd046625d2b802813fedfbbf2769f6f34de51)
++++ b/YearComparator.java	(date 1619280826627)
+@@ -7,7 +7,6 @@
+     //Instance Variable
+     private int releaseYear;
+ 
+-    
+     public YearComparator(int year) {
+ 
+         this.releaseYear = year;
+Index: MovieHeap.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/MovieHeap.java b/MovieHeap.java
+new file mode 100644
+--- /dev/null	(date 1619281373413)
++++ b/MovieHeap.java	(date 1619281373413)
+@@ -0,0 +1,7 @@
++import java.util.List;
++
++public class MovieHeap {
++
++    
++    
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"7107dbc6-36cb-4e35-892f-37bcf801272e\" name=\"Default Changelist\" comment=\"Committed\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/StudentsSawComparator.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/StudentsSawComparator.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PREVIEW_PUSH_PROTECTED_ONLY\" value=\"true\" />\r\n    <option name=\"PUSH_AUTO_UPDATE\" value=\"true\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1rcTPBHb7gZxxi1A8yp4cXlWbjY\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Run Config Junit Kean Trident\" type=\"JUnit\" factoryName=\"JUnit\">\r\n      <module name=\"keantridentrepository\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"openjdk-15\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"\" />\r\n      <option name=\"METHOD_NAME\" value=\"\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"7107dbc6-36cb-4e35-892f-37bcf801272e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1619274367312</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1619274367312</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Committed\">\r\n      <created>1619278294367</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1619278294371</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Committed\">\r\n      <created>1619278658991</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1619278658993</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Committed\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Committed\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 2d5dd046625d2b802813fedfbbf2769f6f34de51)
++++ b/.idea/workspace.xml	(date 1619281380162)
+@@ -2,8 +2,10 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="7107dbc6-36cb-4e35-892f-37bcf801272e" name="Default Changelist" comment="Committed">
++      <change afterPath="$PROJECT_DIR$/MovieHeap.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/StudentsSawComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentsSawComparator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/RatingComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/RatingComparator.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/YearComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/YearComparator.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -71,7 +73,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1619278658993</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="Committed">
++      <created>1619279300440</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1619279300441</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
