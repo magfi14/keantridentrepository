@@ -68,13 +68,17 @@ public class DistributionComparator implements Comparator {
 
     /**
      *
-     * @param comparator1 The first comparator
-     * @param comparator2 The second comparator
+     * @param o1 The first comparator
+     * @param o2 The second comparator
      * @return The difference between the 2 movies
      */
 
     @Override
     public int compare(Object o1, Object o2) {
-        return o2.getSerialDistributionID();
+
+        DistributionComparator object1 = (DistributionComparator) o1;
+        DistributionComparator object2 = (DistributionComparator) o2;
+
+        return object2.getSerialDistributionID() - object1.getSerialDistributionID();
     }
 }
