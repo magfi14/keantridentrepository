@@ -15,7 +15,7 @@ public class MovieHeap {
     while (scan.hasNextLine()) {
         int ID = scan.nextInt();
         int seen = scan.nextInt();
-        int rating = scan.nextInt();
+        float rating = scan.nextFloat();
         String title = scan.next();
         int year = scan.nextInt();
     }
