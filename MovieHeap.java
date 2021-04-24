@@ -13,7 +13,11 @@ public class MovieHeap {
 
     //Loop to read File
     while (scan.hasNextLine()) {
-        
+        int ID = scan.nextInt();
+        int seen = scan.nextInt();
+        int rating = scan.nextInt();
+        String title = scan.next();
+        int year = scan.nextInt();
     }
 
     }
