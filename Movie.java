@@ -1,3 +1,8 @@
+/**
+ * @author Ethan Kupershtein
+ * @date 4-20-2021
+ */
+
 public class Movie {
 
     /**
