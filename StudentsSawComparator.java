@@ -1,3 +1,7 @@
+/**
+ * @author Ethan Kupershtein
+ */
+
 import java.util.Comparator;
 
 public class StudentsSawComparator implements Comparator {
