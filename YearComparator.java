@@ -1,3 +1,5 @@
+//Author: Liam Healy
+
 import java.util.Comparator;
 
 public class YearComparator implements Comparator {
@@ -5,7 +7,7 @@ public class YearComparator implements Comparator {
     //Instance Variable
     private int releaseYear;
 
-
+    
     public YearComparator(int year) {
 
         this.releaseYear = year;
