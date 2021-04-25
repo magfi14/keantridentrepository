@@ -48,43 +48,19 @@ public class MovieHeap {
             selection = input.nextInt();
             //By Year
             if (selection == 1) {
-                //Copy Queue so .poll doesn't delete it
-                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(yearCompare);
-                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!queueCopy.isEmpty()) {
-                    Movie m = queueCopy.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
-                }
+               print(yearCompare);
             }
             //By Average Raing
             else if (selection == 2) {
-                //Copy Queue so .poll doesn't delete it
-                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(rateCompare);
-                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!queueCopy.isEmpty()) {
-                    Movie m = queueCopy.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
-                }
+                print(rateCompare);
             }
             //By Viewers
             else if (selection == 3) {
-                //Copy Queue so .poll doesn't delete it
-                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(viewsCompare);
-                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!queueCopy.isEmpty()) {
-                    Movie m = queueCopy.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
-                }
+                print(viewsCompare);
             }
             //By Numeric Score
             else if (selection == 4) {
-                //Copy Queue so .poll doesn't delete it
-                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(idCompare);
-                System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!queueCopy.isEmpty()) {
-                    Movie m = queueCopy.poll();
-                    System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
-                }
+                print(idCompare);
             }
             //Exit
             else if (selection == 0) {
@@ -92,7 +68,7 @@ public class MovieHeap {
             }
             //Incorrect input
             else {
-                System.out.println("Input not recognized. Try again");
+                System.out.println("Input not recognized. Try again, only numerals 0 through 4 are recognized");
             }
        }
     
@@ -102,6 +78,17 @@ public class MovieHeap {
     input.close();
     }
     
+    //Print Method
+    private static void print(PriorityQueue<Movie> e) {
+        //Copy Queue so .poll doesn't delete it
+        PriorityQueue<Movie> queueCopy = new PriorityQueue<>(e);
+        System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
+        while (!queueCopy.isEmpty()) {
+            Movie m = queueCopy.poll();
+            System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
+        }
+    }
+
 }
 
 
