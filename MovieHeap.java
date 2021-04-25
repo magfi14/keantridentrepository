@@ -14,8 +14,8 @@ public class MovieHeap {
     Scanner input = new Scanner(System.in);
 
     //Create Priority Queues for each comparator
-    PriorityQueue<Movie> rateCompare = new PriorityQueue<Movie>(1, new RatingComparator());
     PriorityQueue<Movie> yearCompare = new PriorityQueue<Movie>(1, new YearComparator());
+    PriorityQueue<Movie> rateCompare = new PriorityQueue<Movie>(1, new RatingComparator());
     PriorityQueue<Movie> viewsCompare = new PriorityQueue<Movie>(1, new StudentsSawComparator());
     PriorityQueue<Movie> idCompare = new PriorityQueue<Movie>(1, new DistributionComparator());
     
@@ -30,9 +30,8 @@ public class MovieHeap {
 
         //Load Queues with values
         Movie adder = new Movie(ID, seen, rating, title, year);
-
-        rateCompare.add(adder);
         yearCompare.add(adder);
+        rateCompare.add(adder);
         viewsCompare.add(adder);
         idCompare.add(adder);
     }
@@ -49,33 +48,41 @@ public class MovieHeap {
             selection = input.nextInt();
             //By Year
             if (selection == 1) {
+                //Copy Queue so .poll doesn't delete it
+                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(yearCompare);
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!yearCompare.isEmpty()) {
-                    Movie m = yearCompare.poll();
+                while (!queueCopy.isEmpty()) {
+                    Movie m = queueCopy.poll();
                     System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
             //By Average Raing
             else if (selection == 2) {
+                //Copy Queue so .poll doesn't delete it
+                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(rateCompare);
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!rateCompare.isEmpty()) {
-                    Movie m = rateCompare.poll();
+                while (!queueCopy.isEmpty()) {
+                    Movie m = queueCopy.poll();
                     System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
             //By Viewers
             else if (selection == 3) {
+                //Copy Queue so .poll doesn't delete it
+                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(viewsCompare);
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!viewsCompare.isEmpty()) {
-                    Movie m = viewsCompare.poll();
+                while (!queueCopy.isEmpty()) {
+                    Movie m = queueCopy.poll();
                     System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
             //By Numeric Score
             else if (selection == 4) {
+                //Copy Queue so .poll doesn't delete it
+                PriorityQueue<Movie> queueCopy = new PriorityQueue<>(idCompare);
                 System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", "Title" , "Year" , "Rating" , "Viewers", "Numeric Score");
-                while (!idCompare.isEmpty()) {
-                    Movie m = idCompare.poll();
+                while (!queueCopy.isEmpty()) {
+                    Movie m = queueCopy.poll();
                     System.out.printf("| %25s  |  %2s  |  %7s  |  %8s | %1s %n", m.getMovieName() , m.getRelYear() , m.getAvgRating() , m.getNumberSeen(), m.getSerialDistributionID());
                 }
             }
