@@ -1,3 +1,7 @@
+//Authors: Ethan Kupershtein, Liam Healy, Davian Brown, Daniel Gneco
+//05/04/2021
+//MovieHeap- This Program will create the priority Queues based on the comparators and ask the user which to display
+
 import java.io.*;
 import java.util.*;
 
