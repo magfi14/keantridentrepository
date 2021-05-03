@@ -1,8 +1,6 @@
-/**
- * @author Ethan Kupershtein
- * @date 4-20-2021
- * This is the class file for the Movie Object
- */
+//Authors: Ethan Kupershtein, Liam Healy, Davian Brown, Daniel Gneco
+//05/04/2021
+//Movie- This is the class file for the movie object
 
 public class Movie {
 
