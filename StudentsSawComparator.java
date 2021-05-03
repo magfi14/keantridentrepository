@@ -1,3 +1,7 @@
+//Authors: Ethan Kupershtein, Liam Healy, Davian Brown, Daniel Gneco
+//05/04/2021
+//StudentsSawComparator- This is the comparator for the total views 
+
 import java.util.Comparator;
 
 public class StudentsSawComparator implements Comparator<Movie> {
