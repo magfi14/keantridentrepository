@@ -1,3 +1,7 @@
+//Authors: Ethan Kupershtein, Liam Healy, Davian Brown, Daniel Gneco
+//05/04/2021
+//YearComparator- This is the comparator for the release year 
+
 import java.util.Comparator;
 
 public class YearComparator implements Comparator<Movie> {
